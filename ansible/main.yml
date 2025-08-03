@@ -16,7 +16,7 @@
       name: docker-ce
       state: latest
       update_cache: true
-  - name: Copy file with owner and permissions
+  - name: Copy docker-compose file
     ansible.builtin.copy:
       src: docker-compose.yml
       dest: /home/lab-user/docker-compose.yml
@@ -27,6 +27,20 @@
     ansible.builtin.copy:
       src: prometheus-config.yml
       dest: /home/lab-user/prometheus-config.yml
+      owner: lab-user
+      group: lab-user
+      mode: '0644'
+  - name: Copy grafana datasources file
+    ansible.builtin.copy:
+      src: grafana-datasources.yml
+      dest: /home/lab-user/grafana-datasources.yml
+      owner: lab-user
+      group: lab-user
+      mode: '0644'
+  - name: Copy grafana dashboards folder
+    ansible.builtin.copy:
+      src: grafana-dashboards
+      dest: /home/lab-user/
       owner: lab-user
       group: lab-user
       mode: '0644'

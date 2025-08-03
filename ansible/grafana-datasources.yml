@@ -1,0 +1,5 @@
+datasources:
+  - name: prometheus
+    type: prometheus
+    url: http://lab-node.mylab.com:9090
+    isDefault: true

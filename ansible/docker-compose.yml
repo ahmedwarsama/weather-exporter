@@ -13,6 +13,9 @@ services:
     container_name: grafana
     ports:
       - "3000:3000"
+    volumes:
+      - ./grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana-dashboards:/etc/grafana/provisioning/dashboards/
   weather-exporter:
     image: ghcr.io/ahmedwarsama/weather-exporter:latest
     container_name: weather-exporter
