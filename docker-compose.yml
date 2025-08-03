@@ -7,14 +7,14 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./prometheus-config.yaml:/etc/prometheus/prometheus.yml
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
   grafana:
     image: grafana/grafana:12.1.0
     container_name: grafana
     ports:
       - "3000:3000"
   weather-exporter:
-    image: weather-exporter:latest
+    image: ghcr.io/ahmedwarsama/weather-exporter:latest
     container_name: weather-exporter
     env_file: ".env"
     ports:
