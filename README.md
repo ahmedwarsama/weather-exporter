@@ -14,7 +14,8 @@ Create a github actions pipeline that rebuilds and pushes the image to the conta
 2. You need to download the Azure cli; https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 4. You need terraform; https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 5. You need ansible; https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
-6. You will need to make an account and generate an api-token here https://www.weatherapi.com/. 
+6. You will need to make an account and generate an api-token here https://www.weatherapi.com/.
+7. You will need an SSH keypair; `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""`
 
 ## Deploy the VM
 1. Before you can run terraform you first need to login to azure from your terminal. Run the following command `az login`
