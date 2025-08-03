@@ -18,7 +18,7 @@ Create a github actions pipeline that rebuilds and pushes the image to the conta
 
 ## Deploy the VM
 1. Before you can run terraform you first need to login to azure from your terminal. Run the following command `az login`
-2. Add your subscription ID as an env variable; `export TF_VAR_subscription_id=$(az account show --query id -o tsv)
+2. Add your subscription ID as an env variable; `export TF_VAR_subscription_id=$(az account show --query id -o tsv)`
 3. Now you can deploy. Go to the terraform directory and run apply; `terraform apply`
 
 ## Deploy the applications
