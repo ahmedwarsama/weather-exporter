@@ -18,21 +18,21 @@
       update_cache: true
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: ../docker-compose.yml
+      src: docker-compose.yml
       dest: /home/lab-user/docker-compose.yml
       owner: lab-user
       group: lab-user
       mode: '0644'
   - name: Copy prometheus-config file
     ansible.builtin.copy:
-      src: ../prometheus-config.yml
+      src: prometheus-config.yml
       dest: /home/lab-user/prometheus-config.yml
       owner: lab-user
       group: lab-user
       mode: '0644'
   - name: Copy .env file
     ansible.builtin.copy:
-      src: ../.env
+      src: .env
       dest: /home/lab-user/.env
       owner: lab-user
       group: lab-user

@@ -8,4 +8,4 @@ scrape_configs:
   - job_name: "weather-exporter"
     metrics_path: "/metrics"
     static_configs:
-      - targets: ["10.0.2.4:9500"]
+      - targets: ["lab-node.mylab.com:9500"]
