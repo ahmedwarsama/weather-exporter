@@ -16,8 +16,6 @@ services:
   weather-exporter:
     image: weather-exporter:latest
     container_name: weather-exporter
-    environment:
-      - KEY=${KEY}
-      - CITY=Tallinn
+    env_file: ".env"
     ports:
       - "9500:9500"
