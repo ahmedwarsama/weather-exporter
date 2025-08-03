@@ -1,0 +1,44 @@
+- hosts: all
+  gather_facts: false
+  user: lab-user
+  become: yes
+  tasks:
+  - name: Add Docker’s official GPG key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+  - name: Add Docker repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      state: latest
+      update_cache: true
+  - name: Copy file with owner and permissions
+    ansible.builtin.copy:
+      src: ../docker-compose.yml
+      dest: /home/lab-user/docker-compose.yml
+      owner: lab-user
+      group: lab-user
+      mode: '0644'
+  - name: Copy prometheus-config file
+    ansible.builtin.copy:
+      src: ../prometheus-config.yml
+      dest: /home/lab-user/prometheus-config.yml
+      owner: lab-user
+      group: lab-user
+      mode: '0644'
+  - name: Copy .env file
+    ansible.builtin.copy:
+      src: ../.env
+      dest: /home/lab-user/.env
+      owner: lab-user
+      group: lab-user
+      mode: '0640'
+  - name: Create and start services
+    community.docker.docker_compose_v2:
+      project_src: /home/lab-user/
+      files:
+      - docker-compose.yml
