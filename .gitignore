@@ -3,5 +3,5 @@
 terraform.tfstate
 terraform.tfstate.backup
 .env
-venv
+my-venv
 inventory
